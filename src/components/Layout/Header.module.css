@@ -57,6 +57,11 @@
 
    a {
       color: white;
+
+      &.active {
+         color: yellow;
+         font-weight: bold;
+      }
    }
 
 }

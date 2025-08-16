@@ -1,19 +1,7 @@
-import { Card } from "components/UI/Card";
-
-import PostImg from "assets/images/post-img.png";
-import Layout from "components/Layout/Layout";
+import AppRouter from "app/routers/AppRouter";
 
 function App() {
-  return (
-    <Layout>
-      <Card
-        imgSrc={PostImg}
-        title="Lorem Ipsum"
-        description="Description..."
-        topText="Author: Name"
-      />
-    </Layout>
-  );
+  return <AppRouter />;
 }
 
 export default App;
