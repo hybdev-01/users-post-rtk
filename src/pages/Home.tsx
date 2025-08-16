@@ -1,18 +1,10 @@
-import { Card } from "components/UI/Card";
-
-import PostImg from "assets/images/post-img.png";
+import { useGetAllPostsQuery } from "app/services/posts-api";
+import { PostList } from "components/Post/PostList";
 
 const Home = () => {
-  return (
-    <>
-      <Card
-        imgSrc={PostImg}
-        title="Lorem Ipsum"
-        description="Description..."
-        topText="Author: Name"
-      />
-    </>
-  );
+  const { data: allPosts } = useGetAllPostsQuery();
+
+  return <>{allPosts && <PostList posts={allPosts} />}</>;
 };
 
 export default Home;

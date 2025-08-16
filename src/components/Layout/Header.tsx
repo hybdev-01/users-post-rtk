@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <header className={styles["header"]}>
       <h2 className={styles["app-text"]}>
-        <Link to="/">RTK App</Link>
+        <Link to="/">UP-RTK App</Link>
       </h2>
       <nav>
         <ul className={styles["left-nav"]}>

@@ -1,8 +1,10 @@
+import clsx from "clsx";
 import styles from "./Card.module.css";
 
 import { type ReactNode } from "react";
 
 interface CardProps {
+  className?: string;
   children?: ReactNode;
   imgSrc?: string;
   title?: string;
@@ -11,6 +13,7 @@ interface CardProps {
 }
 
 export const Card = ({
+  className,
   children,
   imgSrc,
   title,
@@ -18,11 +21,11 @@ export const Card = ({
   topText,
 }: CardProps) => {
   if (children) {
-    return <div className={styles["card"]}>{children}</div>;
+    return <div className={clsx(styles["card"], className)}>{children}</div>;
   }
 
   return (
-    <div className={styles["card"]}>
+    <div className={clsx(styles["card"], className)}>
       <p className={styles["top-text"]}>{topText}</p>
       <img
         className={styles["img"]}
