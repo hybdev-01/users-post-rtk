@@ -1,0 +1,25 @@
+.button {
+
+   background-color: #e42f2f;
+   border: none;
+   border-radius: 12px;
+
+   color: white;
+
+   font-family: inherit;
+   font-size: 1.125rem;
+   font-weight: 600;
+   line-height: 100%;
+
+   padding: 8px;
+
+   min-width: 120px;
+   min-height: 48px;
+
+   cursor: pointer;
+}
+
+.empty {
+   all: unset;
+   background-color: transparent;
+}
