@@ -1,6 +1,6 @@
 .button {
 
-   background-color: #e42f2f;
+   background-color: var(--main-color);
    border: none;
    border-radius: 12px;
 

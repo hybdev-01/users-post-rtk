@@ -1,4 +1,7 @@
 :root {
+
+  --main-color: #e42f2f;
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -17,6 +20,12 @@
 *::after,
 *::before {
   box-sizing: border-box;
+}
+
+header,
+main,
+footer {
+  padding-inline: 32px;
 }
 
 body {

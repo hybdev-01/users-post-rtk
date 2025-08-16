@@ -1,20 +1,18 @@
-import Button from "components/UI/Button";
 import { Card } from "components/UI/Card";
 
 import PostImg from "assets/images/post-img.png";
+import Layout from "components/Layout/Layout";
 
 function App() {
   return (
-    <>
-      <h2>Hello Project</h2>
-      <Button>Button</Button>
+    <Layout>
       <Card
         imgSrc={PostImg}
         title="Lorem Ipsum"
         description="Description..."
         topText="Author: Name"
       />
-    </>
+    </Layout>
   );
 }
 
