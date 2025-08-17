@@ -1,14 +1,21 @@
 import Layout from "components/Layout";
+import Auth from "pages/Auth";
 import Home from "pages/Home";
 import { Route, Routes } from "react-router-dom";
+import { PrivateRoute } from "./PrivateRoute";
+import { GuestRoute } from "./GuestRoute";
 
 export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="my-posts" element={<h2>My posts...</h2>} />
-        <Route path="auth" element={<h2>Sign in page</h2>} />
+        <Route element={<PrivateRoute />}>
+          <Route path="my-posts" element={<h2>My posts...</h2>} />
+        </Route>
+        <Route element={<GuestRoute />}>
+          <Route path="auth" element={<Auth />} />
+        </Route>
       </Route>
     </Routes>
   );

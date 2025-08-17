@@ -1,7 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { rtkApi } from "./api";
 
+import authReducer, { authReducerPath } from "features/auth/auth-slice";
+
 const rootReducers = combineReducers({
+  [authReducerPath]: authReducer,
   [rtkApi.reducerPath]: rtkApi.reducer,
 });
 
