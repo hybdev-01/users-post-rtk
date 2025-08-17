@@ -9,6 +9,10 @@
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
    }
 
+   li {
+      cursor: pointer;
+   }
+
    .post-card {
       height: 100%;
    }

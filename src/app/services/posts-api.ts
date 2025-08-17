@@ -14,7 +14,7 @@ const postsApi = rtkApi.injectEndpoints({
       providesTags: ["Posts"],
     }),
     getUserPosts: builder.query<Posts[], number>({
-      query: (userId) => `posts/userId=${userId}`,
+      query: (userId) => `posts?userId=${userId}`,
       providesTags: ["Posts"],
     }),
   }),

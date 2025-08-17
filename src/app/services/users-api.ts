@@ -23,7 +23,13 @@ const usersApi = rtkApi.injectEndpoints({
       },
       providesTags: ["Users"],
     }),
+    getAllUsers: build.query<Omit<User, "username">[], void>({
+      query: () => "users",
+      transformResponse: (res: User[]) =>
+        res.map((user) => ({ id: user.id, name: user.name })),
+      providesTags: ["Users"],
+    }),
   }),
 });
 
-export const { useLazyGetUserQuery } = usersApi;
+export const { useLazyGetUserQuery, useGetAllUsersQuery } = usersApi;
