@@ -6,7 +6,9 @@ const Home = () => {
   const { data: allPosts, isSuccess: isPostsSuccess } = useGetAllPostsQuery();
   const { data: allUsers, isSuccess: isUsersSuccess } = useGetAllUsersQuery();
 
-  if (isPostsSuccess && isUsersSuccess) {
+  const isSuccess = isPostsSuccess && isUsersSuccess;
+
+  if (isSuccess) {
     const postsWithAuthor = allPosts.map((post) => ({
       ...post,
       author:

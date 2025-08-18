@@ -14,12 +14,12 @@ export const SignIn = () => {
   const onSubmitClickHandler = async (userName: string) => {
     try {
       const user = await getUser(userName).unwrap();
-      if (user !== undefined) {
-        const token = encryptData(user.username);
-        dispatch(setAuth({ user, token, isAuth: true }));
-        localStorage.setItem("token", token);
-        navigate("/");
-      }
+      if (!user) throw new Error(`${userName} is not found`);
+
+      const token = encryptData(user.username);
+      dispatch(setAuth({ user, token, isAuth: true }));
+      localStorage.setItem("token", token);
+      navigate("/");
     } catch (e) {
       console.log(e);
       console.error("get user fetch is failed");

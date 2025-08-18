@@ -12,13 +12,13 @@ const usersApi = rtkApi.injectEndpoints({
       query: (userName) => `users?username=${userName}`,
       transformResponse: (response: User[], _, arg) => {
         const [currentUser] = response.filter((user) => user.username === arg);
-        if (currentUser && Object.keys(currentUser).length > 0)
+        if (currentUser && Object.keys(currentUser).length > 0) {
           return {
             id: currentUser.id,
             name: currentUser.name,
             username: currentUser.username,
           };
-
+        }
         return;
       },
       providesTags: ["Users"],

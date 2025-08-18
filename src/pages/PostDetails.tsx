@@ -20,7 +20,9 @@ const PostDetails = () => {
   const { data: commentsData, isSuccess: commentsSuccess } =
     useGetPostCommentsQuery(postId ? +postId : skipToken);
 
-  if (postSuccess && usersSuccess && commentsSuccess) {
+  const isSuccess = postSuccess && usersSuccess && commentsSuccess;
+
+  if (isSuccess) {
     const author = allUsers.find((user) => user.id === postData.userId)?.name;
 
     return (

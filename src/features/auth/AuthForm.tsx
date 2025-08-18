@@ -27,6 +27,7 @@ export const AuthForm = ({
     }
 
     onClickSubmit(userNameInput.current.value);
+    e.currentTarget.reset();
   };
 
   return (
