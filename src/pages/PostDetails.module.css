@@ -1,0 +1,56 @@
+.post-details {
+
+   display: flex;
+   justify-content: space-between;
+   gap: 16px;
+
+
+   position: relative;
+
+   height: calc(100vh - 86px);
+
+   @media screen and (max-width: 768px) {
+      flex-direction: column;
+      height: auto;
+   }
+
+   .post-card {
+
+      max-width: 50%;
+
+      @media screen and (max-width: 768px) {
+         max-width: 100%;
+      }
+
+      img {
+
+         display: block;
+
+         margin: 0 auto;
+
+         width: 80%;
+         height: 250px;
+
+         @media screen and (max-width: 1200px) {
+            width: 100%;
+         }
+
+      }
+
+   }
+
+   .comments {
+
+      position: absolute;
+      left: 50%;
+
+      @media screen and (max-width: 768px) {
+         position: static;
+         left: 0;
+
+         height: 525px;
+      }
+
+   }
+
+}

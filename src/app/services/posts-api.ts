@@ -13,6 +13,10 @@ const postsApi = rtkApi.injectEndpoints({
       query: () => "posts",
       providesTags: ["Posts"],
     }),
+    getPostById: builder.query<Posts, number>({
+      query: (postId) => `posts/${postId}`,
+      providesTags: ["Posts"],
+    }),
     getUserPosts: builder.query<Posts[], number>({
       query: (userId) => `posts?userId=${userId}`,
       providesTags: ["Posts"],
@@ -20,4 +24,8 @@ const postsApi = rtkApi.injectEndpoints({
   }),
 });
 
-export const { useGetAllPostsQuery, useGetUserPostsQuery } = postsApi;
+export const {
+  useGetAllPostsQuery,
+  useGetUserPostsQuery,
+  useGetPostByIdQuery,
+} = postsApi;

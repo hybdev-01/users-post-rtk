@@ -1,11 +1,26 @@
 import { selectAuthStatus } from "features/auth/auth-slice";
 import { useAppSelector } from "hooks/redux";
+import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 export const PrivateRoute = () => {
   const isAuth = useAppSelector(selectAuthStatus);
 
-  console.log(isAuth);
+  const [waitState, setWaitState] = useState(false);
 
-  return isAuth ? <Outlet /> : <Navigate to="/" />;
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setWaitState(true);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  if (!isAuth && !waitState) return <></>;
+
+  if (!isAuth && waitState) return <Navigate to="/" />;
+
+  return isAuth && <Outlet />;
 };

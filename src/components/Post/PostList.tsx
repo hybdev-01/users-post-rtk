@@ -21,7 +21,7 @@ export const PostList = ({ posts }: PostListProps) => {
     <ul className={styles["post-list"]}>
       {posts?.map((post) => (
         <li key={post.id}>
-          <Link to={`/post/${post.id}`}>
+          <Link to={`post/${post.id}`}>
             <Card
               className={styles["post-card"]}
               imgSrc={PostImg}

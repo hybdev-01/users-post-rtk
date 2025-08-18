@@ -1,0 +1,51 @@
+.comments-wrapper {
+
+   border-radius: 16px;
+
+   padding: 16px;
+   padding-right: 8px;
+
+   overflow: hidden;
+
+   height: 100%;
+
+   .comment-list {
+
+      padding-right: 8px;
+      overflow-y: auto;
+
+      height: 100%;
+
+   }
+
+   .comment-item {
+
+      border-radius: 10px;
+      border: 2px solid var(--main-color);
+
+      padding: 5px;
+
+      &:not(:last-child) {
+         margin-bottom: 16px;
+      }
+
+      .author {
+
+         font-size: 1rem;
+         font-weight: 700;
+         line-height: 18px;
+
+         color: black;
+      }
+
+      .text {
+         font-size: 0.875rem;
+         font-weight: 500;
+         line-height: 16px;
+
+         color: gray;
+      }
+
+   }
+
+}
