@@ -4,6 +4,7 @@ import { useAppDispatch } from "hooks/redux";
 import { setAuth } from "./auth-slice";
 import { useNavigate } from "react-router-dom";
 import { encryptData } from "utils/encrypt-data";
+import { addToast } from "features/toast/toast-slice";
 
 export const SignIn = () => {
   const dispatch = useAppDispatch();
@@ -21,8 +22,15 @@ export const SignIn = () => {
       localStorage.setItem("token", token);
       navigate("/");
     } catch (e) {
-      console.log(e);
-      console.error("get user fetch is failed");
+      if (e instanceof Error) {
+        dispatch(
+          addToast({
+            message: e.message,
+            title: `Code 404: Get user`,
+            type: "error",
+          })
+        );
+      }
     }
   };
 

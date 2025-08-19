@@ -1,6 +1,6 @@
 import { isRejectedWithValue } from "@reduxjs/toolkit";
 import type { Middleware } from "@reduxjs/toolkit";
-import { showError } from "features/error/error-slice";
+import { addToast } from "features/toast/toast-slice";
 
 export const rtkQueryErrorLogger: Middleware =
   (store) => (next) => (action) => {
@@ -20,15 +20,19 @@ export const rtkQueryErrorLogger: Middleware =
           ? (action.payload as { status: number | string }).status
           : 0;
 
+      const toastMsg = errorMsg
+        ? errorMsg.concat(", ", errorOtherMsg)
+        : errorOtherMsg || "Something went wrong!";
+
       store.dispatch(
-        showError({
-          errorMessage: errorMsg
-            ? errorMsg.concat(", ", errorOtherMsg)
-            : errorOtherMsg || "Something went wrong!",
-          errorCode: errorCode,
-          isError: true,
+        addToast({
+          title: `Code: ${errorCode}`,
+          message: toastMsg,
+          type: "error",
         })
       );
+
+      //console.log(errorMsg, errorOtherMsg, errorCode);
     }
     return next(action);
   };

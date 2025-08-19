@@ -15,8 +15,6 @@ interface PostListProps {
 }
 
 export const PostList = ({ posts }: PostListProps) => {
-  console.log("posts list");
-
   return (
     <ul className={styles["post-list"]}>
       {posts?.map((post) => (

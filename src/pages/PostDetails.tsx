@@ -9,9 +9,14 @@ import { useParams } from "react-router-dom";
 import PostImg from "assets/images/post-img.png";
 import { Card } from "components/UI/Card";
 import { CommentsList } from "components/Comments/CommentsList";
+import { useEffect } from "react";
+import { useAppDispatch } from "hooks/redux";
+import { addToast } from "features/toast/toast-slice";
 
 const PostDetails = () => {
   const { postId } = useParams();
+
+  const dispatch = useAppDispatch();
 
   const { data: postData, isSuccess: postSuccess } = useGetPostByIdQuery(
     postId ? +postId : skipToken
@@ -21,6 +26,18 @@ const PostDetails = () => {
     useGetPostCommentsQuery(postId ? +postId : skipToken);
 
   const isSuccess = postSuccess && usersSuccess && commentsSuccess;
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(
+        addToast({
+          title: "Code 200: Comments",
+          message: "Comments are loaded",
+          type: "success",
+        })
+      );
+    }
+  }, [isSuccess, dispatch]);
 
   if (isSuccess) {
     const author = allUsers.find((user) => user.id === postData.userId)?.name;
