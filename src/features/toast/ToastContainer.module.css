@@ -2,5 +2,5 @@
    position: fixed;
    top: 10%;
    right: 15px;
-   bottom: 5%;
+   max-height: 95vh;
 }

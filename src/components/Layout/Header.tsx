@@ -1,6 +1,6 @@
 import Button from "components/UI/Button";
 import styles from "./Header.module.css";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector } from "hooks/redux";
 import { selectAuthStatus, selectUser } from "features/auth/auth-slice";
 
@@ -16,6 +16,9 @@ const nameTranform = (name: string) => {
 
 export const Header = () => {
   const navigate = useNavigate();
+
+  const location_router = useLocation();
+  console.log(location_router);
 
   const isAuth = useAppSelector(selectAuthStatus);
   const loggedUser = useAppSelector(selectUser);

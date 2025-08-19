@@ -10,7 +10,7 @@ import PostDetails from "pages/PostDetails";
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="post/:postId" element={<PostDetails />} />
         <Route element={<PrivateRoute />}>
